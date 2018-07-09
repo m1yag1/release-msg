@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col s12 m8 offset-m2">
+      <div class="card">
+        <div class="card-content black-text">
+          <span class="card-title">Edit and copy the text below</span>
+          <hr>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="reminder-textarea" class="materialize-textarea">{% include '_includes/reminder_text.j2' %}</textarea>
+            </div>
+          </div>
+          <div class="row">
+            <footer class="col s12 form-footer">
+              <p class="center-align">
+                <button onClick="copyText()" class="btn btn-large waves-effect waves-light">Copy!</button>
+                  <br/></p>
+              </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block scripts %}
+  {{ super() }}
+  <script>
+    function copyText() {
+      var copyText = document.getElementById("reminder-textarea");
+      copyText.select();
+      document.execCommand("copy");
+      M.toast({html: 'Text Copied!', classes: 'rounded'});
+    }
+  </script>
+
+{% endblock scripts %}

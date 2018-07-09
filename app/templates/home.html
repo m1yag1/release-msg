@@ -1,0 +1,69 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col s12 m8 offset-m2">
+      <div class="card">
+        <div class="card-content black-text">
+          <span class="card-title">Release Reminder Creator</span>
+          <div class="form-wrapper">
+            <form action="" method="POST" role="form">
+              <!-- release_date field -->
+              <div class="row">
+                {{ form.hidden_tag() }}
+                <div class="release-date-field input-field col s12">
+                  {{ form.release_date(class='datepicker') }}
+                  {{ form.release_date.label }}
+                </div>
+              </div>
+              <!-- tutor_products field -->
+              <div class="row">
+                <div class="products-field input-field col s12">
+                  {{ form.tutor_products() }}
+                  {{ form.tutor_products.label }}
+                </div>
+              </div>
+              <!-- cnx_products field -->
+              <div class="row">
+                <div class="products-field input-field col s12">
+                  {{ form.cnx_products() }}
+                  {{ form.cnx_products.label }}
+                </div>
+              </div>
+
+              <div class="row">
+                <footer class="col s12 form-footer">
+                <p class="right-align">
+                  <button type="submit"
+                          class="btn btn-large waves-effect waves-light">Submit
+                  </button>
+                  <br/></p>
+              </footer>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+
+{% block scripts %}
+  {{ super() }}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let options = {};
+      // Initialize Date Field
+      let dateElems = document.querySelectorAll('.datepicker');
+      let dateInstances = M.Datepicker.init(dateElems, options);
+      // Initialize Multi Select Fields
+      let selectElems = document.querySelectorAll('select');
+      let selectInstances = M.FormSelect.init(selectElems, options)
+
+    });
+  </script>
+
+{% endblock scripts %}

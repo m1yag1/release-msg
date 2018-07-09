@@ -1,0 +1,9 @@
+body {
+    background-color: powderblue;
+}
+
+#reminder-textarea {
+    background-color: whitesmoke;
+    height: 200px;
+    padding: 10px 0 10px 0;
+}
