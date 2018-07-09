@@ -14,7 +14,7 @@ install:
   - docker-compose -f docker-compose.yml up -d
 
 before_script:
-  - docker-compose exec web /bin/sh -c "cd/app;pip install -r requirements-dev"
+  - docker-compose exec web /bin/sh -c "cd/app;pip install -r requirements-dev.txt"
 
 script:
   - docker-compose exec web /bin/sh -c "cd/app;python -m pytest"
