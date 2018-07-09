@@ -1,0 +1,24 @@
+language: python
+python:
+  - "3.6"
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker info
+
+install:
+  - docker-compose -f docker-compose.yml up -d
+
+before_script:
+  - docker-compose exec web /bin/sh -c "pip install -r requirements-dev.txt"
+
+script:
+  - docker-compose exec web /bin/sh -c "python -m pytest"
+
+after_success:
+  - docker-compose exec web /bin/sh -c "codecov"
+  - docker-compose down

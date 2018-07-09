@@ -16,7 +16,7 @@ Follow the instructions to install [Docker Compose](https://docs.docker.com/comp
 
 ## Deploying to AWS Lambda
 
-> Note: You'll want to make sure you have your AWS credentials file at `~/.aws/credentials` filled out for deployment user `exercise-viewer`
+> Note: You'll want to make sure you have your AWS credentials file at `~/.aws/credentials` filled out for deployment user `release-msg`
 
 The [Zappa](https://github.com/Miserlou/Zappa) project is used to package up the application and deploy it to AWS Lambda.
 
